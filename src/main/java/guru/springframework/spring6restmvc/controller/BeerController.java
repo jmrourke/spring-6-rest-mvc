@@ -21,7 +21,10 @@ public class BeerController {
 
     @RequestMapping("/api/v1/beer")
     public List<Beer> listBeers(){
-        return beerService.listBeers();
+        log.debug("invoking listBeers method");
+        List<Beer> listBeers = beerService.listBeers();
+        log.debug("listBeers method completed - " + listBeers.size());
+        return listBeers;
     }
 
     public Beer getBeerById(UUID id){
