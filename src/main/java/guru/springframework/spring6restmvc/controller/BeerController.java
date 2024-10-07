@@ -63,9 +63,10 @@ public class BeerController {
         return beerService.listBeers();
     }
 
-    @RequestMapping(value = "{beerId}", method = RequestMethod.GET)
-    public Beer getBeerById(@PathVariable("beerId") UUID beerId){
-        log.debug("invoking getBeerById method - " + beerId.toString());
+    @RequestMapping(value = "{beerId}/{check}", method = RequestMethod.GET)
+    public Beer getBeerById(@PathVariable("beerId") UUID beerId,
+                            @PathVariable("check") String checkMe){
+        log.debug("invoking getBeerById method - " + beerId.toString() + " = " + checkMe);
         Beer result = beerService.getBeerById(beerId);
         log.debug(result.toString());
         log.debug("getBeerById method completed");
