@@ -24,6 +24,10 @@ class BeerControllerTest {
 
     @Test
     void getBeerById() throws Exception {
+        System.out.println("invoking getBeerById test");
+        System.out.println(beerService.listBeers());
+        System.out.println("invoking perform operation");
+
         mockMvc.perform(get("/api/v1/beer/" + UUID.randomUUID())
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());

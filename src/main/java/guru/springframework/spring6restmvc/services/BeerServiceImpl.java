@@ -20,6 +20,7 @@ public class BeerServiceImpl implements BeerService {
     private Map<UUID, Beer> beerMap;
 
     public BeerServiceImpl() {
+        log.debug("invoking BeerServiceImpl constructor");
         this.beerMap = new HashMap<>();
 
         Beer beer1 = Beer.builder()
@@ -61,6 +62,7 @@ public class BeerServiceImpl implements BeerService {
         beerMap.put(beer1.getId(), beer1);
         beerMap.put(beer2.getId(), beer2);
         beerMap.put(beer3.getId(), beer3);
+        log.debug("invoking BeerServiceImpl constructor - completed");
     }
 
     @Override

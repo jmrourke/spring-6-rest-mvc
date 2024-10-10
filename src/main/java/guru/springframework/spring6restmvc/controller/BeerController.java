@@ -65,10 +65,14 @@ public class BeerController {
 
     @RequestMapping(value = "{beerId}", method = RequestMethod.GET)
     public Beer getBeerById(@PathVariable("beerId") UUID beerId){
-
-        log.debug("Get Beer by Id - in controller");
-
-        return beerService.getBeerById(beerId);
+        log.debug("Get Beer by Id - in controller - " + beerId.toString());
+        Beer myBeer = beerService.getBeerById(beerId);
+        if (myBeer != null) {
+            log.debug(myBeer.toString());
+        } else {
+            log.debug("Sorry the beer object is null");
+        } // end if
+        return myBeer;
     }
 
 }
